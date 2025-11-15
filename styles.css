@@ -1,0 +1,329 @@
+/* CSS Variables for Theme */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --heading-color: #000000;
+    --accent-color: #007bff;
+    --bullet-color: #333333;
+    --nav-bg: rgba(0, 0, 0, 0.1);
+    --nav-hover: rgba(0, 0, 0, 0.2);
+    --toggle-bg: #ccc;
+    --toggle-slider: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --accent-color: #4da3ff;
+    --bullet-color: #b0b0b0;
+    --nav-bg: rgba(255, 255, 255, 0.1);
+    --nav-hover: rgba(255, 255, 255, 0.2);
+    --toggle-bg: #555;
+    --toggle-slider: #1a1a1a;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--toggle-bg);
+    transition: 0.3s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--toggle-slider);
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Slides Container */
+.slides-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.6s ease;
+    padding: 60px;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.slide.prev {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide.next {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+/* Slide Content */
+.slide-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+.slide-content.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Typography */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+/* Logo */
+.logo {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px var(--shadow-color));
+    animation: fadeInScale 1s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Bullet Lists */
+.bullet-list {
+    list-style: none;
+    padding: 0;
+}
+
+.bullet-list li {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--bullet-color);
+    margin-bottom: 1.2rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.bullet-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+/* Demo Container */
+.demo-container {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+}
+
+.demo-iframe {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+}
+
+.demo-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--bullet-color);
+    font-style: italic;
+    text-align: center;
+}
+
+/* Questions Title */
+.questions-title {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: var(--nav-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: var(--text-color);
+}
+
+.nav-arrow:hover {
+    background-color: var(--nav-hover);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.nav-arrow-left {
+    left: 30px;
+}
+
+.nav-arrow-right {
+    right: 30px;
+}
+
+.nav-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Slide Indicator */
+.slide-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: var(--bullet-color);
+    z-index: 100;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slide {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .bullet-list li {
+        font-size: 1.2rem;
+    }
+
+    .questions-title {
+        font-size: 3rem;
+    }
+
+    .logo {
+        max-width: 300px;
+    }
+
+    .nav-arrow {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nav-arrow-left {
+        left: 15px;
+    }
+
+    .nav-arrow-right {
+        right: 15px;
+    }
+
+    .demo-container {
+        height: 60vh;
+    }
+}

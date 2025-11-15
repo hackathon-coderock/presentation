@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <label class="toggle-switch">
+            <input type="checkbox" id="theme-toggle-checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container">
+        <!-- Slide 1: Intro/Splash -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-content center">
+                <img src="logo_transparent.png" alt="Logo" class="logo">
+                <h1>ChatGP</h1>
+            </div>
+        </div>
+
+        <!-- Slide 2: Problem -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content">
+                <h1>Problem</h1>
+                <ul class="bullet-list">
+                    <li>Challenge one facing the industry</li>
+                    <li>Current limitations and bottlenecks</li>
+                    <li>Market gap or unmet need</li>
+                    <li>Impact on stakeholders</li>
+                    <li>Scale of the problem</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: Technology and Use of AI -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content">
+                <h1>Technology and Use of AI</h1>
+                <ul class="bullet-list">
+                    <li>AI-powered solution architecture</li>
+                    <li>Machine learning models and algorithms</li>
+                    <li>Data processing and analytics capabilities</li>
+                    <li>Integration with existing systems</li>
+                    <li>Scalability and performance benefits</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: Solution -->
+        <div class="slide" data-slide="4">
+            <div class="slide-content">
+                <h1>Solution</h1>
+                <ul class="bullet-list">
+                    <li>Innovative approach to solving the problem</li>
+                    <li>Key features and functionality</li>
+                    <li>Benefits and value proposition</li>
+                    <li>Competitive advantages</li>
+                    <li>Implementation timeline</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 5: Demo -->
+        <div class="slide" data-slide="5">
+            <div class="slide-content">
+                <h1>Demo</h1>
+                <div class="demo-container">
+                    <iframe src="about:blank" frameborder="0" class="demo-iframe" title="Demo"></iframe>
+                    <p class="demo-note">Update the iframe src in index.html to point to your demo URL</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Any Questions? -->
+        <div class="slide" data-slide="6">
+            <div class="slide-content center">
+                <h1 class="questions-title">Any Questions?</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="nav-arrow nav-arrow-left" id="prev-arrow">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+    </div>
+    <div class="nav-arrow nav-arrow-right" id="next-arrow">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </div>
+
+    <!-- Slide Indicator -->
+    <div class="slide-indicator">
+        <span id="current-slide">1</span> / <span id="total-slides">6</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
