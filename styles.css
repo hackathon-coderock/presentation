@@ -172,6 +172,24 @@ h1 {
     }
 }
 
+@keyframes spinAndPulsate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.02);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Spinning logo animation */
+.spinme img {
+    animation: fadeInScale 1s ease-out, spinAndPulsate 60s ease-in-out infinite;
+    animation-delay: 0s, 0.5s;
+}
+
 /* Bullet Lists */
 .bullet-list {
     list-style: none;
