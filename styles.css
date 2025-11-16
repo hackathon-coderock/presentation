@@ -225,6 +225,14 @@ h1 {
     position: relative;
 }
 
+.splash {
+    width: 33vh;
+    height: 33vh;
+    position: relative;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+}
+
 .demo-iframe {
     width: 100%;
     height: 100%;
@@ -312,6 +320,13 @@ h1 {
 
 .flowchart {
     max-height: 80vh;
+}
+
+.content-image {
+    max-height: 80vh;
+    max-width: 40vw;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
 }
 
 /* Responsive Design */
