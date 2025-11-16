@@ -1,6 +1,6 @@
 // Initialize variables
 let currentSlide = 1;
-const totalSlides = 9;
+const totalSlides = 8;
 
 // Get DOM elements
 const slides = document.querySelectorAll('.slide');
