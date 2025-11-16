@@ -1,0 +1,16 @@
+- Reads many formats (CSV, JSON, PDF, text) and keeps section metadata instead of blindly slicing one blob (main.go:254-520, main.go:600-669).
+  - Supports plain embedding retrieval plus doc2query (LLM-generated surrogate questions) for paraphrase-friendly search (main.go:1185-1350).
+  - Incrementally rebuilds embeddings with a file watcher and parallel workers, so the index stays current automatically (main.go:960-1182).
+  - Adds keyword intelligence (extraction, expansion, lexical merge, numeric coverage) and a semantic answer cache, far beyond standard top‑k similarity
+    (main.go:93-194, main.go:1371-1904).
+  - Provides richer prompt context (chunk numbers, sources, sections) for better grounding (main.go:488-520, main.go:1905-1944).
+  - Includes operational niceties: model warmups/keep-alives plus dual CLI+HTTP interfaces (main.go:196-252, main.go:1952-2087).
+
+
+
+
+LLM Preconsultation
+Extracts symptoms and uses agentic rag to view your medical history and produce an overview of your relevant medical history
+
+Auto Transcriptions
+Transcriptions of phone or in person appointments with GPs
